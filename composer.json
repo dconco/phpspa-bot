@@ -1,0 +1,32 @@
+{
+   "type": "project",
+   "name": "phpspa/phpspa",
+   "description": "PhpSPA Project Template",
+   "homepage": "https://github.com/dconco/phpspa-template",
+   "keywords": [ "phpspa", "php", "framework" ],
+   "license": "MIT",
+   "authors": [
+      {
+         "name": "dconco",
+         "email": "concodave@gmail.com",
+         "homepage": "https://dconco.github.io"
+      }
+   ],
+   "require": {
+      "dconco/phpspa": "v2.0.0",
+      "vlucas/phpdotenv": "^5.6"
+   },
+   "scripts": {
+      "start": [
+         "Composer\\Config::disableProcessTimeout",
+         "php -S localhost:8000 -t public"
+      ],
+      "post-create-project-cmd": [
+         "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+         "npm install",
+         "npm run build"
+      ]
+   },
+   "minimum-stability": "stable",
+   "prefer-stable": true
+}

@@ -17,6 +17,8 @@ function SendAI($prompt) {
                   ->post($payload);
 
    if ($response->ok()) {
-      return $response->json();
+      $result = $response->json();
+      $ai_response = $result['candidates'][0]['content']['parts'][0]['text'];
+      return $ai_response;
    }
 }

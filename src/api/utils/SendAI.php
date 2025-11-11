@@ -5,10 +5,20 @@ use function Component\useFetch;
 function SendAI($prompt) {
    $GEMINI_API_KEY = $_ENV["GEMINI_API_KEY"];
    $model = 'gemini-2.5-flash';
+   // $imageContent = file_get_contents(__DIR__ . '/..')
+   // $ss = base64_encode($imageContent)
 
    $payload = [
       "contents" => [
-         "parts" => ["text" => $prompt]
+         "parts" => [
+            // [
+            //    "inline_data": [
+            //       "mime_type": "image/jpeg",
+            //       "data": $ss
+            //    ]
+            // ],
+            ["text" => $prompt]
+         ]
       ]
    ];
 
